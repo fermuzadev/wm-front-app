@@ -1,53 +1,66 @@
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import {
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Avatar,
+  IconButton,
+  Typography,
+  Box,
+} from "@mui/material";
 
-export default function RecipeReviewCard() {
+import { red } from "@mui/material/colors";
+import { Favorite, Close, MoreVert } from "@mui/icons-material";
+
+export default function RecipeReviewCard({
+  avatarUrl = "https://api.dicebear.com/7.x/fun-emoji/svg?seed=Bob",
+  userName = "Jose",
+}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            J
           </Avatar>
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <MoreVert />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={userName}
       />
       <CardMedia
         component="img"
         height="194"
-        image="../../vite.svg"
-        alt="Paella dish"
+        image={avatarUrl}
+        alt="avatar picture"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tempore
+          deleniti aut? Voluptatem error odio molestiae aliquam, veritatis
+          laborum dolorum, iusto ratione earum autem porro, reprehenderit ullam
+          nam eligendi.
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "100%",
+          }}
+        >
+          <IconButton aria-label="add to favorites">
+            <Favorite />
+          </IconButton>
+          <IconButton aria-label="close">
+            <Close />
+          </IconButton>
+        </Box>
       </CardActions>
     </Card>
   );
