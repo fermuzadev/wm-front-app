@@ -1,28 +1,23 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-
-import "./App.css";
 import RecipeReviewCard from "./components/Card";
+import { Box } from "@mui/material";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
-
-function App() {
+export default function App() {
   return (
-    <>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <h1>App de Citas y Amistad</h1>
-        <RecipeReviewCard />
-        <p className="read-the-docs">
-          Esta App sirve para conocer personas afines a tus intereses
-        </p>
-      </ThemeProvider>
-    </>
+    <Box
+      sx={{
+        margin: "20px 0",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        textAlign: "center",
+      }}
+    >
+      <img src="./dating-app.png" alt="dating app logo" width="90px" />
+      <h1>App de Citas y Amistad</h1>
+      <RecipeReviewCard />
+      <p className="read-the-docs">
+        Esta App sirve para conocer personas afines a tus intereses
+      </p>
+    </Box>
   );
 }
-
-export default App;
