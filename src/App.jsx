@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import UserCard from "./components/Card";
+import { Box, Image, Text } from "@chakra-ui/react";
+//import { fetchData } from "./api.tsx";
+import { userMock } from "./mocks/usermock.js";
+import "./global.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [cardCounter, setCardCounter] = useState(0);
+  const [appUsers, setAppUsers] = useState(userMock.users);
+
+  // useEffect(() => {
+  //   const fetchDataAsync = async () => {
+  //     try {
+  //       const fetchedData = await fetchData();
+  //       setAppUsers(fetchedData);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchDataAsync();
+  //   console.log(appUsers);
+  // }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Box
+      margin="20px 0"
+      display="flex"
+      alignItems="center"
+      flexDirection="column"
+      textAlign="center"
+    >
+      <Image src="./dating-app.png" alt="dating app logo" width="90px" />
+      <Box color="white" fontSize="30px" as="h1" p="0.3em">
+        App de Citas y Amistad
+      </Box>
+      <UserCard
+        userName={appUsers[cardCounter].name}
+        imageUrl={appUsers[cardCounter].image}
+        setCardCounter={setCardCounter}
+        cardCounter={cardCounter}
+      />
+      <Text color="white" className="read-the-docs" pt="10px">
+        Esta App sirve para conocer personas afines a tus intereses
+      </Text>
+    </Box>
+  );
 }
-
-export default App
