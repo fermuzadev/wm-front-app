@@ -12,12 +12,20 @@ import {
 
 import { red } from "@mui/material/colors";
 import { Favorite, Close, MoreVert } from "@mui/icons-material";
+import { useState } from "react";
 
-export default function RecipeReviewCard({
-  avatarUrl = "https://api.dicebear.com/7.x/fun-emoji/svg?seed=Bob",
-  userName = "Jose",
+export default function UserCard({
+  userName,
+  imageUrl,
+  setCardCounter,
+  cardCounter,
 }) {
-  return (
+  const [noMatches, setNoMatches] = useState(false);
+  const handleUnmatch = () => {
+    cardCounter < 9 ? setCardCounter(cardCounter + 1) : setNoMatches(true);
+  };
+
+  return !noMatches ? (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
@@ -35,7 +43,7 @@ export default function RecipeReviewCard({
       <CardMedia
         component="img"
         height="194"
-        image={avatarUrl}
+        image={imageUrl}
         alt="avatar picture"
       />
       <CardContent>
@@ -57,11 +65,15 @@ export default function RecipeReviewCard({
           <IconButton aria-label="add to favorites">
             <Favorite />
           </IconButton>
-          <IconButton aria-label="close">
+          <IconButton aria-label="close" onClick={handleUnmatch}>
             <Close />
           </IconButton>
         </Box>
       </CardActions>
     </Card>
+  ) : (
+    <Typography color="red" variant="h4">
+      No hay más personas de momento
+    </Typography>
   );
 }
