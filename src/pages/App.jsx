@@ -1,9 +1,9 @@
 import { useState } from "react";
-import UserCard from "./components/Card";
+import UserCard from "../components/Card.jsx";
 import { Box, Image, Text } from "@chakra-ui/react";
 //import { fetchData } from "./api.tsx";
-import { userMock } from "./mocks/usermock.js";
-import "./global.css";
+import { userMock } from "../mocks/usermock.js";
+import "../global.css";
 
 export default function App() {
   const [cardCounter, setCardCounter] = useState(0);
