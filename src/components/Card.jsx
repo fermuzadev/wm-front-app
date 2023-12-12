@@ -34,9 +34,7 @@ export default function UserCard({
 
       <Box as="p">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tempore
-        deleniti aut? Voluptatem error odio molestiae aliquam, veritatis laborum
-        dolorum, iusto ratione earum autem porro, reprehenderit ullam nam
-        eligendi.
+        deleniti aut? Voluptatem error odio molestiae aliquam.
       </Box>
 
       <CardFooter>
@@ -62,8 +60,10 @@ export default function UserCard({
       </CardFooter>
     </Card>
   ) : (
-    <Box as="h4" color="red" size="30px">
-      No hay más personas de momento
-    </Box>
+    <Center h="100vh">
+      <Box as="h2" color="red">
+        No hay más personas de momento
+      </Box>
+    </Center>
   );
 }

@@ -31,19 +31,12 @@ export default function App() {
       flexDirection="column"
       textAlign="center"
     >
-      <Image src="./dating-app.png" alt="dating app logo" width="90px" />
-      <Box color="white" fontSize="30px" as="h1" p="0.3em">
-        App de Citas y Amistad
-      </Box>
       <UserCard
         userName={appUsers[cardCounter].name}
         imageUrl={appUsers[cardCounter].image}
         setCardCounter={setCardCounter}
         cardCounter={cardCounter}
       />
-      <Text color="white" className="read-the-docs" pt="10px">
-        Esta App sirve para conocer personas afines a tus intereses
-      </Text>
     </Box>
   );
 }
